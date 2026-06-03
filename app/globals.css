@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0A2452;
+  --navy-light: #1A3B7C;
+}
+
+html, body {
+  background: #F5F6FA;
+  color: #0A2452;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-conkreta-navy {
+  background-color: #0A2452;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-navy-600 disabled:opacity-50;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 bg-white px-4 py-2 text-sm font-semibold text-navy transition hover:bg-navy-50 disabled:opacity-50;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium text-navy/70 transition hover:bg-navy/5;
+}
+
+.card {
+  @apply rounded-2xl border border-navy/10 bg-white p-6 shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-lg border border-navy/20 bg-white px-3 py-2 text-sm text-navy placeholder:text-navy/40 focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20;
+}
+
+.label {
+  @apply block text-xs font-semibold uppercase tracking-wider text-navy/60 mb-1;
+}
