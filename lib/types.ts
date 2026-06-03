@@ -20,6 +20,7 @@ export interface Post {
   hashtags: string | null;
   media_url: string | null;
   media_type: MediaType | null;
+  resources_url: string | null;
   status: Status;
   created_by: string | null;
   assigned_to: string | null;

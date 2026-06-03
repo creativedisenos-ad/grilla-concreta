@@ -101,6 +101,34 @@ export default function PostDetailPage() {
                 <StatusBadge status={post.status} />
               </div>
 
+              {post.resources_url && (
+                <div className="mt-5">
+                  <a
+                    href={post.resources_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-4 rounded-xl border-2 border-navy/15 bg-gradient-to-br from-navy-50 to-white p-5 transition hover:border-navy hover:shadow-md"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-navy text-white">
+                        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
+                          <path d="M12 2L2 8.5l4.5 2.5L12 7l5.5 4 4.5-2.5L12 2z" fill="currentColor" opacity="0.85" />
+                          <path d="M2 15.5L12 22l10-6.5V8.5L12 15 2 8.5v7z" fill="currentColor" />
+                        </svg>
+                      </div>
+                      <div className="leading-tight">
+                        <div className="text-sm font-bold text-navy">Recursos del post</div>
+                        <div className="text-xs text-navy/60">Abrir en Google Drive — material listo para publicar</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-semibold text-navy group-hover:translate-x-1 transition-transform">
+                      Abrir
+                      <span aria-hidden>→</span>
+                    </div>
+                  </a>
+                </div>
+              )}
+
               {post.media_url && (
                 <div className="mt-5 overflow-hidden rounded-xl border border-navy/10 bg-navy-50">
                   {post.media_type === 'video' ? (

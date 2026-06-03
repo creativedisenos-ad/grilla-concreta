@@ -27,6 +27,7 @@ export default function NuevoPostPage() {
     hashtags: '',
     media_url: '',
     media_type: 'image' as MediaType,
+    resources_url: '',
     notes: '',
     assigned_to: '',
   });
@@ -58,6 +59,7 @@ export default function NuevoPostPage() {
         hashtags: form.hashtags.trim() || null,
         media_url: form.media_url.trim() || null,
         media_type: form.media_url.trim() ? form.media_type : null,
+        resources_url: form.resources_url.trim() || null,
         notes: form.notes.trim() || null,
         assigned_to: form.assigned_to.trim() || null,
         created_by: user.name,
@@ -155,14 +157,24 @@ export default function NuevoPostPage() {
 
           <div className="card space-y-4">
             <div>
-              <label className="label">URL del media (imagen o video)</label>
+              <label className="label">Recursos (Google Drive)</label>
+              <input
+                value={form.resources_url}
+                onChange={(e) => set('resources_url', e.target.value)}
+                placeholder="https://drive.google.com/..."
+                className="input"
+              />
+              <p className="mt-1 text-xs text-navy/40">Link a la carpeta o archivo de Drive con el material listo para publicar (artes, videos, copys finales).</p>
+            </div>
+            <div>
+              <label className="label">URL de preview de media (opcional)</label>
               <input
                 value={form.media_url}
                 onChange={(e) => set('media_url', e.target.value)}
-                placeholder="https://..."
+                placeholder="https://... (.jpg / .png / .mp4)"
                 className="input"
               />
-              <p className="mt-1 text-xs text-navy/40">Pega aquí el enlace de Drive, Dropbox o cualquier CDN. (Adjuntar archivos llega en V2.)</p>
+              <p className="mt-1 text-xs text-navy/40">Solo si quieres mostrar una imagen/video directamente en el preview. Para Drive, usa el campo de arriba.</p>
             </div>
             {form.media_url && (
               <div>
