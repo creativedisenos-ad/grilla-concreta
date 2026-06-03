@@ -18,16 +18,16 @@ export function Header() {
   }
 
   return (
-    <header className="bg-conkreta-navy border-b border-white/10">
+    <header className="border-b border-navy/10 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/calendario" className="flex items-center gap-3">
-          <Logo size="md" invert />
+          <Logo size="md" />
         </Link>
         <nav className="flex items-center gap-1">
           <Link
             href="/calendario"
             className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${
-              pathname?.startsWith('/calendario') ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'
+              pathname?.startsWith('/calendario') ? 'bg-navy text-white' : 'text-navy/70 hover:bg-navy/5 hover:text-navy'
             }`}
           >
             Calendario
@@ -35,7 +35,7 @@ export function Header() {
           <Link
             href="/post/nuevo"
             className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${
-              pathname === '/post/nuevo' ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'
+              pathname === '/post/nuevo' ? 'bg-navy text-white' : 'text-navy/70 hover:bg-navy/5 hover:text-navy'
             }`}
           >
             Nuevo post
@@ -45,15 +45,15 @@ export function Header() {
           {user ? (
             <>
               <div className="text-right leading-tight">
-                <div className="text-sm font-semibold text-white">{user.name}</div>
-                <div className="text-[10px] uppercase tracking-wider text-white/60">{user.role}</div>
+                <div className="text-sm font-semibold text-navy">{user.name}</div>
+                <div className="text-[10px] uppercase tracking-wider text-navy/60">{user.role}</div>
               </div>
-              <button onClick={signOut} className="rounded-md border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/80 hover:bg-white/10">
+              <button onClick={signOut} className="rounded-md border border-navy/20 px-3 py-1.5 text-xs font-semibold text-navy/70 hover:bg-navy/5">
                 Salir
               </button>
             </>
           ) : (
-            <Link href="/" className="rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-navy">
+            <Link href="/" className="rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white">
               Entrar
             </Link>
           )}

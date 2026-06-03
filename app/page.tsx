@@ -21,12 +21,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-conkreta-navy">
+    <div className="min-h-screen bg-gradient-to-br from-navy-50 via-white to-navy-50">
       <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6">
         <div className="mb-10 flex justify-center">
-          <Logo size="lg" invert />
+          <Logo size="lg" />
         </div>
-        <div className="rounded-2xl bg-white p-8 shadow-2xl">
+        <div className="rounded-2xl border border-navy/10 bg-white p-8 shadow-xl">
           <h1 className="text-2xl font-black text-navy">Grilla de contenido</h1>
           <p className="mt-1 text-sm text-navy/60">Identifícate para revisar y aprobar el calendario.</p>
           <form onSubmit={submit} className="mt-6 space-y-4">
@@ -60,7 +60,7 @@ export default function LoginPage() {
             <button type="submit" className="btn-primary w-full py-3">Entrar al calendario →</button>
           </form>
         </div>
-        <p className="mt-6 text-center text-xs text-white/50">CONKRETA GROUP · Sistema de aprobación de contenido</p>
+        <p className="mt-6 text-center text-xs text-navy/40">CONKRETA GROUP · Sistema de aprobación de contenido</p>
       </div>
     </div>
   );
