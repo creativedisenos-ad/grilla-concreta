@@ -105,16 +105,34 @@ export default function CalendarioPage() {
             <div className="card p-0">
               <div className="divide-y divide-navy/10">
                 {visible.map((p) => (
-                  <Link key={p.id} href={`/post/${p.id}`} className="flex items-center gap-4 px-5 py-3 hover:bg-navy/5">
-                    <div className="w-20 text-xs font-semibold text-navy/60">
-                      {new Date(p.scheduled_date + 'T00:00:00').toLocaleDateString('es', { day: '2-digit', month: 'short' })}
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-navy">{p.title}</div>
-                      <div className="mt-0.5 text-xs text-navy/50">{p.format} · {p.network}</div>
-                    </div>
-                    <StatusBadge status={p.status} />
-                  </Link>
+                  <div key={p.id} className="flex items-center gap-4 px-5 py-3 hover:bg-navy/5">
+                    <Link href={`/post/${p.id}`} className="flex flex-1 items-center gap-4">
+                      <div className="w-20 text-xs font-semibold text-navy/60">
+                        {new Date(p.scheduled_date + 'T00:00:00').toLocaleDateString('es', { day: '2-digit', month: 'short' })}
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-semibold text-navy">{p.title}</div>
+                        <div className="mt-0.5 text-xs text-navy/50">{p.format} · {p.network}</div>
+                      </div>
+                      <StatusBadge status={p.status} />
+                    </Link>
+                    {p.resources_url && (
+                      <a
+                        href={p.resources_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        title="Abrir recursos en Drive"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-navy/15 bg-white px-2.5 py-1.5 text-xs font-semibold text-navy hover:border-navy hover:bg-navy hover:text-white"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">
+                          <path d="M12 2L2 8.5l4.5 2.5L12 7l5.5 4 4.5-2.5L12 2z" fill="currentColor" opacity="0.85" />
+                          <path d="M2 15.5L12 22l10-6.5V8.5L12 15 2 8.5v7z" fill="currentColor" />
+                        </svg>
+                        Recursos
+                      </a>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>

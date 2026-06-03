@@ -97,15 +97,28 @@ export function CalendarMonth({
               </div>
               <div className="space-y-1">
                 {items.slice(0, 3).map((p) => (
-                  <Link
-                    key={p.id}
-                    href={`/post/${p.id}`}
-                    className="group flex items-center gap-1.5 rounded-md border border-navy/10 bg-white px-1.5 py-1 hover:border-navy/30 hover:shadow-sm"
-                  >
-                    <span className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${STATUS_DOT[p.status]}`} />
-                    <NetworkBadge network={p.network} size="sm" />
-                    <span className="truncate text-[11px] font-medium text-navy">{p.title}</span>
-                  </Link>
+                  <div key={p.id} className="group flex items-center gap-1.5 rounded-md border border-navy/10 bg-white pl-1.5 hover:border-navy/30 hover:shadow-sm">
+                    <Link href={`/post/${p.id}`} className="flex flex-1 items-center gap-1.5 py-1 min-w-0">
+                      <span className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${STATUS_DOT[p.status]}`} />
+                      <NetworkBadge network={p.network} size="sm" />
+                      <span className="truncate text-[11px] font-medium text-navy">{p.title}</span>
+                    </Link>
+                    {p.resources_url && (
+                      <a
+                        href={p.resources_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Recursos en Drive"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex h-full items-center px-1.5 text-navy/50 hover:text-navy"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="h-3 w-3">
+                          <path d="M12 2L2 8.5l4.5 2.5L12 7l5.5 4 4.5-2.5L12 2z" fill="currentColor" opacity="0.85" />
+                          <path d="M2 15.5L12 22l10-6.5V8.5L12 15 2 8.5v7z" fill="currentColor" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 ))}
                 {items.length > 3 && (
                   <div className="px-1 text-[10px] font-semibold text-navy/50">+{items.length - 3} más</div>
