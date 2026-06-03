@@ -35,7 +35,7 @@ export default function LoginPage() {
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Ej: Walter Peña"
+                placeholder="Tu nombre"
                 className="input"
                 autoFocus
               />
