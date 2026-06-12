@@ -61,19 +61,19 @@ export const STATUS_LABEL: Record<Status, string> = {
 export const STATUS_COLOR: Record<Status, string> = {
   draft: 'bg-slate-200 text-slate-700',
   pending_approval: 'bg-blue-100 text-blue-700',
-  approved: 'bg-green-100 text-green-700',
+  approved: 'bg-emerald-100 text-emerald-700',
   changes_requested: 'bg-amber-100 text-amber-800',
   rejected: 'bg-red-100 text-red-700',
-  published: 'bg-violet-100 text-violet-700',
+  published: 'bg-green-600 text-white',
 };
 
 export const STATUS_DOT: Record<Status, string> = {
   draft: 'bg-slate-400',
   pending_approval: 'bg-blue-500',
-  approved: 'bg-green-500',
+  approved: 'bg-emerald-500',
   changes_requested: 'bg-amber-500',
   rejected: 'bg-red-500',
-  published: 'bg-violet-500',
+  published: 'bg-green-600',
 };
 
 export const NETWORK_LABEL: Record<Network, string> = {
